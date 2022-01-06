@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../Styles/logo.svg';
 import '../Styles/App.css'
+import SearchWord from './SeachWord';
 
 // FOR DEV TOOLS
 import { connectReduxDevtools } from 'mst-middlewares';
@@ -26,6 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-3xl font-bold underline">Hello World!</h1>
+      <SearchWord />
     </div>
   );
 }
