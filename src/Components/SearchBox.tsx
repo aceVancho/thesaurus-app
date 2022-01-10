@@ -1,7 +1,8 @@
 import React, { useState, } from 'react';
 import searchSynonyms from '../api/searchSynonyms';
 import { v4 as uuidv4 } from 'uuid';
-import {currentSearchModel, store} from '../Models/currentSearchModel'
+import {CurrentSearchModel, SynonymsModel } from '../Models/currentSearchModel'
+import { observer } from 'mobx-react';
 
 function SearchBox() {
     let [inputText, setInputText] = useState('');
@@ -9,13 +10,21 @@ function SearchBox() {
     const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         (async () => {
-            const data: any = await searchSynonyms(inputText);
-            console.log('data (in SearchBox.tsx):', data)
-            const currentSearch = currentSearchModel.create({
-                id: uuidv4(),
-                apiEndpoint: data?.config?.url
+            const response: any = await searchSynonyms(inputText);
+            console.log('response (in SearchBox.tsx):', response)
+
+            const synonymsModel = SynonymsModel.create({
+                noun: response.data?.noun?.syn,
+                verb: response.data?.verb?.syn,
+                adverb: response.data?.adverb?.syn,
+                adjective: response.data?.adjective?.syn,
             })
-            store.setCurrentSearch(currentSearch)
+            CurrentSearchModel.create({
+                id: uuidv4(),
+                apiEndpoint: response?.config?.url,
+                searchWord: inputText,
+                synonyms: synonymsModel
+            })
         })()
         document.title = `Search: ${inputText}`
         event.currentTarget.reset();
@@ -40,4 +49,4 @@ function SearchBox() {
         )
     }
 
-export default SearchBox;
+export default observer(SearchBox);
