@@ -12,7 +12,9 @@ connectReduxDevtools(remotedev, store);
 
 function App() {
   return (
-    <div className="App">
+    <div 
+    className="App bg-purple-900 h-screen flex flex-col justify-center items-center" 
+    >
       <h1 className="font-bold underline">Thesaurus</h1>
       <SearchWord />
       <ResultsContainer />

@@ -3,6 +3,8 @@ import searchSynonyms from '../api/searchSynonyms';
 import { v4 as uuidv4 } from 'uuid';
 import {CurrentSearchModel, SynonymsModel } from '../Models/currentSearchModel'
 import { observer } from 'mobx-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function SearchBox() {
     let [inputText, setInputText] = useState('');
@@ -36,15 +38,19 @@ function SearchBox() {
       }
 
     return (
-            <form onSubmit={onSubmitHandler}>
-                <label htmlFor="search">
+            <form className='flex flex-row w-10/12 border-black border-2 rounded' onSubmit={onSubmitHandler}>
+                <label
+                className="bg-white w-full flex justify-end" 
+                htmlFor="search">
                     <input 
+                        className='rounded-sm w-full'
+                        placeholder='  Search'
                         id="search"
                         type="text"
                         onChange={handleInputChange}
                         ></input>
+                <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
                 </label>
-                <button type="submit">Search</button>
             </form>
         )
     }

@@ -5,25 +5,26 @@ export default async function searchSynonyms(text: string): Promise<any> {
 
   const searchText = text;
 
-  // var options = {
-  //   method: 'GET',
-  //   url: wordsApiUrl(searchText),
-  //   headers: wordsApiHeader
-  // };
+  var wordOptions = {
+    method: 'GET',
+    url: wordsApiUrl(searchText),
+    headers: wordsApiHeader
+  };
 
-  var options = {
+  var synonymsOptions = {
     method: 'GET',
     url: thesaurusApiURL(searchText)
   }
   
-  let response;
-  // let response;
+  let synonymResponse;
+  let wordResponse;
 
   try {
-     response = await axios.request(options)
-    //  response2 = await axios.request(options2)
+    synonymResponse = await axios.request(synonymsOptions)
+    wordResponse = await axios.request(wordOptions)
+    synonymResponse['wordsAPIResponse'] = wordResponse;
   } catch(error) {
       console.log(error)
   };
-  return response;
+  return synonymResponse;
 }
