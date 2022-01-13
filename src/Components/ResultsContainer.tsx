@@ -1,6 +1,6 @@
 import React, { useState, } from 'react';
 import { store, } from '../Models/currentSearchModel';
-import { onSnapshot, onAction, onPatch } from 'mobx-state-tree';
+import { onSnapshot, onPatch } from 'mobx-state-tree';
 
 export const ResultsContainer = () => {
     
@@ -10,11 +10,6 @@ export const ResultsContainer = () => {
         setData(snapShot.currentSearch?.synonyms)
         console.log('Data in ResultsContainer.tsx:', data)
     })
-    // if (store.currentSearch) {
-    //     onAction(store.currentSearch, (call) => {
-    //         console.log('onAction', call)
-    //     })
-    // }
 
     onPatch(store, (call) => {
         console.log('onPatch', call)
@@ -22,8 +17,8 @@ export const ResultsContainer = () => {
 
     return (
         <ul>
-            {data?.noun?.map((word: any, index: number) => <li key={index}>{word}</li>)}
-            {data?.verb?.map((word: any, index: number) => <li key={index}>{word}</li>)}
+            {/* {data?.noun?.map((word: any, index: number) => <li key={index}>{word}</li>)} */}
+            {/* {data?.verb?.map((word: any, index: number) => <li key={index}>{word}</li>)} */}
         </ul>
     )
 }

@@ -1,6 +1,8 @@
+@import-normalize;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 body {
   margin: 0;
@@ -9,6 +11,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #49556a;
+}
+
+.searchFormAnimation {
+  animation-name: move;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move {
+  100% {
+    position: relative;
+    bottom: 45vh;
+  }
+  0% {
+    position: relative;
+    bottom: 0px;
+  }
+}
+
+#search::placeholder {
+  color: #21272f
 }
 
 code {
