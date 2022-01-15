@@ -15,10 +15,30 @@ export const ResultsContainer = () => {
         console.log('onPatch', call)
     })
 
-    return (
-        <ul>
-            {/* {data?.noun?.map((word: any, index: number) => <li key={index}>{word}</li>)} */}
-            {/* {data?.verb?.map((word: any, index: number) => <li key={index}>{word}</li>)} */}
-        </ul>
+    let resultsContainerHTML = (
+        <div id="resultsContainer" className='w-6/12 shadow-xl mt-6'>
+            <ul className=''>
+                {data?.noun?.map((word: any, index: number) => {
+                    return (
+                        <div className='flex items-center'>
+                            <li key={index} className='list-disc list-inside pl-4'>
+                                <span >{word}</span>
+                            </li>
+                        </div>
+                    )
+                    })}
+                {data?.verb?.map((word: any, index: number) => {
+                    return (
+                        <div className='flex items-center'>
+                            <li key={index} className='list-disc list-inside pl-4'>
+                                <span >{word}</span>
+                            </li>
+                        </div>
+                    )
+                })}
+            </ul>
+        </div>
     )
+
+    return (store.currentSearch ? resultsContainerHTML : <></>);
 }
