@@ -1,7 +1,7 @@
 import '../Styles/App.css'
 import SearchWord from './SearchBox';
 import {ResultsContainer} from './ResultsContainer';
-import { store } from '../Models/currentSearchModel';
+import { store } from '../Models/CurrentSearchModel';
 import { connectReduxDevtools } from 'mst-middlewares';
 import makeInspectable from 'mobx-devtools-mst';
 const remotedev = require('remotedev');

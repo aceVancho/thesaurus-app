@@ -1,13 +1,13 @@
 import React, { useState, } from 'react';
 import searchSynonyms from '../api/searchSynonyms';
-import { store } from '../Models/currentSearchModel';
+import { store } from '../Models/CurrentSearchModel';
 import { observer } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function SearchBox() {
     let [inputText, setInputText] = useState('');
-    let styleBeforeSearch = 'flex flex-row w-6/12 h-12 shadow-xl rounded-none'
+    let styleBeforeSearch = 'flex flex-row w-6/12 h-12 shadow-xl'
     let styleAfterSearch = styleBeforeSearch + ' searchFormAnimation'
     let [style, setStyle] = useState(styleBeforeSearch)
 

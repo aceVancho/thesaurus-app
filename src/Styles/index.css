@@ -39,12 +39,11 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  font-family: Roboto, sans-serif;
+  font-family: Roboto bold, sans-serif;
   outline-style: none;
   caret-color: white;
-  -webkit-text-fill-color: #a69986;
+  -webkit-text-fill-color: #8993a4;
   -webkit-box-shadow: 0 0 0px 1000px #21272f inset;
-  /* transition: background-color 5000s ease-in-out 0s; */
 }
 
 code {
@@ -91,14 +90,18 @@ code {
   left: 25%;
 }
 
+#searchForm:focus-within {
+  border: 1px solid #8993a4;
+}
+
 #searchInput::placeholder {
   color: #8993a4;
   font-family: Roboto bold, sans-serif;
 }
 
 #searchInput {
-  font-family: Roboto, sans-serif;
-  color: #a69986;
+  color: #8993a4;
+  font-family: Roboto bold, sans-serif;
   background-color: #242931;
 }
 
