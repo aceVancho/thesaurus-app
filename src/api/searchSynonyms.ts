@@ -1,5 +1,6 @@
 import { wordsApiHeader, wordsApiUrl, thesaurusApiURL } from '../consts';
-import { CurrentSearchModel, SynonymsModel, ResultsModel } from '../Models/CurrentSearchModel';
+import { CurrentSearchModel, SynonymsModel } from '../Models/CurrentSearchModel';
+import { ResultsModel } from '../Models/ResultsModel';
 import { v4 as uuidv4 } from 'uuid';
 
 const axios = require("axios").default;
