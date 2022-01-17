@@ -16,11 +16,18 @@ const CurrentSearchModel = types
     apiEndpoint: types.maybe(types.string),
     searchWord: types.string,
     synonyms: types.maybe(SynonymsModel),
-    results: types.optional(types.array(ResultsModel), [])
+    results: types.optional(types.array(ResultsModel), []),
+    filterIsEnabled: types.optional(types.boolean, false),
+    filterType: types.maybe(types.string),
   })
   .views((self) => ({
     filterByPartOfSpeech(partOfSpeech: string) {
       return self.results?.filter((resultsModel) => resultsModel.partOfSpeech === partOfSpeech);  
+    },
+    get filterBySynonyms() {
+      const synonyms: string[] = []
+      self.results.forEach((resultObj) => resultObj?.synonyms?.forEach((word) => synonyms.push(word)));
+      return synonyms;
     }
   }))
   .actions((self) => ({
