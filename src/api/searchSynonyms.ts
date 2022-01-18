@@ -27,7 +27,7 @@ export default async function searchSynonyms(text: string): Promise<any> {
     searchWord: searchText,
   })
 
-  synonymResponse?.wordsAPIResponse?.data?.results?.forEach((result: any) => {
+  synonymResponse?.data?.results?.forEach((result: any) => {
       ResultsModel.create(result)
   })
 
