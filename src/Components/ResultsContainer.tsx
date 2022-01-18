@@ -23,33 +23,6 @@ export const ResultsContainer = () => {
                         </div>
                     )
                     })}
-                {/* {data?.noun?.map((word: string, index: number) => {
-                    return (
-                        <div key={index} className='flex items-center'>
-                            <li key={index} className='list-disc list-inside pl-4'>
-                                <span >{word.toLowerCase()}</span>
-                            </li>
-                        </div>
-                    )
-                    })}
-                {data?.verb?.map((word: any, index: number) => {
-                    return (
-                        <div key={index} className='flex items-center'>
-                            <li key={index} className='list-disc list-inside pl-4'>
-                                <span >{word.toLowerCase()}</span>
-                            </li>
-                        </div>
-                    )
-                })}
-                {data?.adjective?.map((word: any, index: number) => {
-                    return (
-                        <div key={index} className='flex items-center'>
-                            <li key={index} className='list-disc list-inside pl-4'>
-                                <span >{word.toLowerCase()}</span>
-                            </li>
-                        </div>
-                    )
-                })} */}
             </ul>
         </div>
     )
