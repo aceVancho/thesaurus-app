@@ -1,6 +1,6 @@
 import '../Styles/App.css'
 import SearchWord from './SearchBox';
-import {ResultsContainer} from './ResultsContainer';
+import { ResultsContainer } from './ResultsContainer';
 import { FilterBox } from './FilterBox';
 import { store } from '../Models/CurrentSearchModel';
 import { connectReduxDevtools } from 'mst-middlewares';

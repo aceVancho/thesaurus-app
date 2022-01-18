@@ -44,6 +44,18 @@ const CurrentSearchModel = types
     setResults(results: any) {
       self.results?.push(results)
     },
+    setFilterIsEnabled() {
+      self.filterIsEnabled = !self.filterIsEnabled
+    },
+    setFilterType(filterType: string) {
+      if (self.filterType !== filterType) {
+        self.filterType = filterType
+        if (!self.filterIsEnabled) this.setFilterIsEnabled()
+      } else {
+        self.filterType = undefined;
+        this.setFilterIsEnabled()
+      }
+    },
     afterCreate() {
       store.setCurrentSearch(self)
     }

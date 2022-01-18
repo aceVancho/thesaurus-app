@@ -15,6 +15,7 @@ const FilterBox = () => {
 
     const onClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const partOfSpeech = event.currentTarget.innerText;
+        store.currentSearch?.setFilterType(partOfSpeech);
         // TODO make resultsContainer display this data
         return console.log(store.currentSearch?.filterByPartOfSpeech(partOfSpeech))
     }
