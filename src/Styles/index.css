@@ -146,7 +146,6 @@ code {
   background-color: #242931;
   color: #f0f1f5;
   font-family: Roboto, sans-serif;
-  /* border: 1px solid #49556a; */
 }
 
 #FilterBox div {
@@ -162,6 +161,10 @@ code {
 
 #FilterBox button:hover {
   border: 1px dotted rgb(247, 101, 217);
+}
+
+.pressed {
+  border: 1px solid rgb(247, 101, 217) !important;
 }
 
 

@@ -1,21 +1,12 @@
 import { types, } from 'mobx-state-tree';
 import { ResultsModel } from './ResultsModel';
 
-
-const SynonymsModel = types
-  .model('SynonymsModel', {
-    noun: types.maybe(types.array(types.string)),
-    verb: types.maybe(types.array(types.string)),
-    adverb: types.maybe(types.array(types.string)),
-    adjective: types.maybe(types.array(types.string)),
-  })
-
 const CurrentSearchModel = types
   .model('CurrentSearchModel', {
     id: types.maybe(types.string),
     apiEndpoint: types.maybe(types.string),
     searchWord: types.string,
-    synonyms: types.maybe(SynonymsModel),
+    // synonyms: types.maybe(SynonymsModel),
     results: types.optional(types.array(ResultsModel), []),
     filterIsEnabled: types.optional(types.boolean, false),
     filterType: types.maybe(types.string),
@@ -73,4 +64,4 @@ const rootStore = types
 
   const store = rootStore.create({})
 
-  export { CurrentSearchModel, store, SynonymsModel };
+  export { CurrentSearchModel, store, };

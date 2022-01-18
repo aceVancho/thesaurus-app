@@ -1,5 +1,5 @@
-import { CurrentSearchModel, store } from "../Models/CurrentSearchModel";
-import { getSnapshot, onSnapshot } from 'mobx-state-tree';
+import { store } from "../Models/CurrentSearchModel";
+import { onSnapshot } from 'mobx-state-tree';
 import React, { useState } from "react";
 
 const FilterBox = () => {
@@ -12,15 +12,28 @@ const FilterBox = () => {
         setPartsOfSpeech(partsOfSpeechArray)
     })
 
+    const handleStyleChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const partOfSpeech = event.currentTarget.innerText;
+        const lastFilterType = store.currentSearch?.filterType
+        
+        if (!event.currentTarget.classList.contains('pressed')) {
+            event.currentTarget.classList.add('pressed')
+            document.getElementById(`${lastFilterType}-filter`)?.classList.remove('pressed')
+        } else {
+            document.getElementById(`${partOfSpeech}-filter`)?.classList.remove('pressed')
+        }
+    }
+
     const onClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const partOfSpeech = event.currentTarget.innerText;
+        handleStyleChange(event)
         return store.currentSearch?.setFilterType(partOfSpeech);
     }
 
     let FilterBoxHTML = (
         <div id="FilterBox" className="flex flex-col absolute left-8 mt-6 w-2/12 items-center shadow-lg">
             <div className="w-full text-center py-3">Parts of speech</div>
-            {partsOfSpeech?.map((part:any, index:number) => <button onClick={onClickHandler} className="py-1 w-full" key={index}>{part}</button>)}
+            {partsOfSpeech?.map((part:any, index:number) => <button id={`${part}-filter`} onClick={onClickHandler} className="py-1 w-full" key={index}>{part}</button>)}
         </div>
     )
 
