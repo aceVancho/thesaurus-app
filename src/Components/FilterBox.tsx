@@ -10,14 +10,11 @@ const FilterBox = () => {
         const partsOfSpeechSet = new Set(store.currentSearch?.results.map((result) => result.partOfSpeech)).keys()
         const partsOfSpeechArray = Array.from(partsOfSpeechSet)
         setPartsOfSpeech(partsOfSpeechArray)
-        // console.log('view', store.currentSearch?.filterByPartOfSpeech('verb'))
     })
 
     const onClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const partOfSpeech = event.currentTarget.innerText;
-        store.currentSearch?.setFilterType(partOfSpeech);
-        // TODO make resultsContainer display this data
-        return console.log(store.currentSearch?.filterByPartOfSpeech(partOfSpeech))
+        return store.currentSearch?.setFilterType(partOfSpeech);
     }
 
     let FilterBoxHTML = (

@@ -7,8 +7,12 @@ export const ResultsContainer = () => {
     let [data, setData] = useState<any>()
     
     onSnapshot(store, (snapShot) => {
-        setData(store.currentSearch?.filterBySynonyms)
-        // console.log('Data in ResultsContainer.tsx:', data)
+        if (store.currentSearch?.filterIsEnabled && store.currentSearch.filterType) {
+            setData(store.currentSearch.filterByPartOfSpeech(store.currentSearch.filterType))
+        } else {
+            setData(store.currentSearch?.filterBySynonyms)
+        }
+
     })
 
     let resultsContainerHTML = (
@@ -22,7 +26,7 @@ export const ResultsContainer = () => {
                             </li>
                         </div>
                     )
-                    })}
+                })}
             </ul>
         </div>
     )
