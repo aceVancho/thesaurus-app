@@ -22,7 +22,11 @@ const CurrentSearchModel = types
   })
   .views((self) => ({
     filterByPartOfSpeech(partOfSpeech: string) {
-      return self.results?.filter((resultsModel) => resultsModel.partOfSpeech === partOfSpeech);  
+      let results:string[] = [];
+      self.results?.forEach((resultsModel) => {
+        if (resultsModel.partOfSpeech === partOfSpeech) resultsModel.synonyms?.forEach((word) => results.push(word))
+      });  
+      return results;
     },
     get filterBySynonyms() {
       const synonyms: string[] = []

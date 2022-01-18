@@ -145,7 +145,7 @@ code {
 #FilterBox {
   background-color: #242931;
   color: #f0f1f5;
-  font-family: Roboto bold, sans-serif;
+  font-family: Roboto, sans-serif;
   /* border: 1px solid #49556a; */
 }
 
@@ -161,10 +161,7 @@ code {
 }
 
 #FilterBox button:hover {
-  border: 2px dotted rgb(249, 42, 208);
-  opacity: .5;
-  z-index: 10;
-  /* height: 50px; */
+  border: 1px dotted rgb(247, 101, 217);
 }
 
 
