@@ -1,4 +1,5 @@
 import { store } from "../Models/CurrentSearchModel";
+import { handleStyleChange } from "../utils/handleStyleChange";
 import { onSnapshot } from 'mobx-state-tree';
 import React, { useState } from "react";
 
@@ -11,18 +12,6 @@ const FilterBox = () => {
         const partsOfSpeechArray = Array.from(partsOfSpeechSet)
         setPartsOfSpeech(partsOfSpeechArray)
     })
-
-    const handleStyleChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        const partOfSpeech = event.currentTarget.innerText;
-        const lastFilterType = store.currentSearch?.filterType
-        
-        if (!event.currentTarget.classList.contains('pressed')) {
-            event.currentTarget.classList.add('pressed')
-            document.getElementById(`${lastFilterType}-filter`)?.classList.remove('pressed')
-        } else {
-            document.getElementById(`${partOfSpeech}-filter`)?.classList.remove('pressed')
-        }
-    }
 
     const onClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const partOfSpeech = event.currentTarget.innerText;
@@ -41,4 +30,4 @@ const FilterBox = () => {
     return (store.currentSearch ? FilterBoxHTML : <></>)
 }
 
-export { FilterBox };
+export { FilterBox, };

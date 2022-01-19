@@ -1,8 +1,10 @@
 import { store } from "../Models/CurrentSearchModel";
+import { handleStyleChange } from "../utils/handleStyleChange";
 
 const ListsBox = () => {
 
-    const definitionsClickHandler = () => {
+    const definitionsClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        handleStyleChange(event)
         store.currentSearch?.setFilterType('definitions')
         console.log(store.currentSearch?.filterByDefinitions)
     }
@@ -12,7 +14,7 @@ const ListsBox = () => {
             <div className="w-full text-center py-3">Lists </div>
             <button className="py-1 w-full">Synonyms</button>
             <button className="py-1 w-full">Antonyms</button>
-            <button className="py-1 w-full" onClick={definitionsClickHandler}>Definitions</button>
+            <button className="py-1 w-full" id="definitions-filter" onClick={definitionsClickHandler}>Definitions</button>
             <button className="py-1 w-full">Examples</button>
         </div>
     )
