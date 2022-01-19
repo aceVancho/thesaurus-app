@@ -1,10 +1,12 @@
 import '../Styles/App.css'
 import SearchWord from './SearchBox';
 import { ResultsContainer } from './ResultsContainer';
-import { FilterBox } from './FilterBox';
+import { LeftContainer } from './LeftContainer';
 import { store } from '../Models/CurrentSearchModel';
 import { connectReduxDevtools } from 'mst-middlewares';
 import makeInspectable from 'mobx-devtools-mst';
+import { FilterBox } from './FilterBox';
+import { ListsBox } from './ListsBox';
 const remotedev = require('remotedev');
 
 
@@ -16,18 +18,14 @@ function App() {
   
   return (
     <div id="main">
-      <div 
-        id="topContainerMain"
-        className=""
-      >
+      <div id="topContainerMain">
       </div>
-      <div 
-        id="bottomContainerMain"
-        className=''
-      >
+      <div id="bottomContainerMain">
         <SearchWord />  
         <ResultsContainer />
-        <FilterBox />
+        <LeftContainer />
+        {/* <ListsBox />
+        <FilterBox /> */}
       </div>
     </div>
   );

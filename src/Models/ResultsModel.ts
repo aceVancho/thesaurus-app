@@ -3,7 +3,8 @@ import { store } from './CurrentSearchModel';
 
 const ResultsModel = types
     .model('ResultsModel', {
-        partOfSpeech: types.maybe(types.string),
+        // TODO consider using types.optional so a fallback may be used when partsOfSpeech is null
+        partOfSpeech: types.maybeNull(types.string),
         definition: types.maybe(types.string),
         synonyms: types.maybe(types.array(types.string)),
         examples: types.maybe(types.array(types.string)),

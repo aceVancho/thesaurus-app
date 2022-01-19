@@ -162,6 +162,26 @@ code {
 #FilterBox button:hover {
   border: 1px dotted rgb(247, 101, 217);
 }
+#ListsBox {
+  background-color: #242931;
+  color: #f0f1f5;
+  font-family: Roboto, sans-serif;
+}
+
+#ListsBox div {
+  background-color: #2b313a;
+  border: 1px solid #49556a;
+  height: 50px;
+}
+
+#ListsBox button {
+  border: 1px solid #49556a;
+  height: 50px;
+}
+
+#ListsBox button:hover {
+  border: 1px dotted rgb(247, 101, 217);
+}
 
 .pressed {
   border: 1px solid rgb(247, 101, 217) !important;

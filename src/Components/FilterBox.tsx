@@ -31,12 +31,13 @@ const FilterBox = () => {
     }
 
     let FilterBoxHTML = (
-        <div id="FilterBox" className="flex flex-col absolute left-8 mt-6 w-2/12 items-center shadow-lg">
+        <div id="FilterBox" className="flex flex-col items-center shadow-lg">
             <div className="w-full text-center py-3">Parts of speech</div>
             {partsOfSpeech?.map((part:any, index:number) => <button id={`${part}-filter`} onClick={onClickHandler} className="py-1 w-full" key={index}>{part}</button>)}
         </div>
     )
-
+    
+    // return FilterBoxHTML
     return (store.currentSearch ? FilterBoxHTML : <></>)
 }
 
