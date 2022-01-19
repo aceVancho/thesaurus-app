@@ -145,7 +145,7 @@ code {
 #FilterBox {
   background-color: #242931;
   color: #f0f1f5;
-  font-family: Roboto, sans-serif;
+  font-family: Roboto bold, sans-serif;
 }
 
 #FilterBox div {
@@ -165,7 +165,7 @@ code {
 #ListsBox {
   background-color: #242931;
   color: #f0f1f5;
-  font-family: Roboto, sans-serif;
+  font-family: Roboto bold, sans-serif;
 }
 
 #ListsBox div {

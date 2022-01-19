@@ -24,8 +24,6 @@ function App() {
         <SearchWord />  
         <ResultsContainer />
         <LeftContainer />
-        {/* <ListsBox />
-        <FilterBox /> */}
       </div>
     </div>
   );

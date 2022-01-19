@@ -12,15 +12,14 @@ const LeftContainer = () => {
     })
 
     let LeftContainerHTML = (
-        <div className="flex flex-col w-2/12 ml-12 mt-6">
+        <div className="flex flex-col w-2/12 mx-12 mt-6">
             <ListsBox />
             <br></br>
             <FilterBox />
         </div>
     )
-    console.log(storeExists)
+
     return (storeExists ? LeftContainerHTML : <></>)
-    // return LeftContainerHTML;
 }
 
 export { LeftContainer }
