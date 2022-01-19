@@ -8,22 +8,11 @@ export const ResultsContainer = () => {
     
     onSnapshot(store, (snapShot) => {
         if (store.currentSearch?.filterIsEnabled && store.currentSearch.filterType) {
-            setData(store.currentSearch.filterByPartOfSpeech(store.currentSearch.filterType))
-            // TODO: Option A) make views dynamic. I.E. store.currentSearch.filterBy(filterType)
-            // TODO: Option B) make filterType accept string|{partsOfSpeech: noun, verb, etc}
-            // switch(store.currentSearch?.filterType) {
-            //     case "noun":
-            //     setData(store.currentSearch.filterByPartOfSpeech(store.currentSearch.filterType))
-            //     break;
-
-            //     case "definitions":
-            //     setData(store.currentSearch.filterByDefinitions)
-            //     break;
-            // }
+            const filterType = store.currentSearch.filterType;
+            setData(store.currentSearch.filterBy(filterType))
         } else {
             setData(store.currentSearch?.filterBySynonyms)
         }
-
     })
 
     let resultsContainerHTML = (

@@ -34,6 +34,22 @@ const CurrentSearchModel = types
       })
       return definitions;
     },
+    filterBy(filterType: string) {
+      switch(self?.filterType) {
+        case "noun":
+        case "verb":
+        case "adjective":
+        case "adverb":
+        case "pronoun":
+        case "preposition":
+        case "conjunction":
+        case "interjection":
+          return this.filterByPartOfSpeech(filterType)
+
+        case "definitions":
+          return this.filterByDefinitions
+      }
+    }
   }))
   .actions((self) => ({
     setId(id: string) {
