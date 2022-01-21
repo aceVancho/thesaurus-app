@@ -32,6 +32,28 @@ const CurrentSearchModel = types
       }) 
       return definitions;
     },
+    get filterByAntonyms() {
+      const antonyms: string[] = [];
+      self.results.forEach((resultsObj) => {
+        if (resultsObj.antonyms) {
+          resultsObj.antonyms.forEach((antonym) => {
+            if (!antonyms.includes(antonym)) antonyms.push(antonym)
+          })
+        }
+      }) 
+      return antonyms;
+    },
+    get filterByExamples() {
+      const examples: string[] = [];
+      self.results.forEach((resultsObj) => {
+        if (resultsObj.examples) {
+          resultsObj.examples.forEach((example) => {
+            if (!examples.includes(example)) examples.push(example)
+          })
+        }
+      }) 
+      return examples;
+    },
     filterBy(filterType: string) {
       switch(self?.filterType) {
         case "noun":
@@ -46,6 +68,12 @@ const CurrentSearchModel = types
 
         case "definitions":
           return this.filterByDefinitions.length === 0 ? ['No definitions found'] : this.filterByDefinitions
+        
+        case "antonyms":
+          return this.filterByAntonyms.length === 0 ? ['No antonyms found'] : this.filterByAntonyms
+        
+        case "examples":
+          return this.filterByExamples.length === 0 ? ['No examples found'] : this.filterByExamples
       }
     }
   }))

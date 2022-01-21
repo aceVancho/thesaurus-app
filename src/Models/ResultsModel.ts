@@ -9,6 +9,7 @@ const ResultsModel = types
         synonyms: types.maybe(types.array(types.string)),
         examples: types.maybe(types.array(types.string)),
         derivation: types.maybe(types.array(types.string)),
+        antonyms: types.maybe(types.array(types.string)),
         typeOf: types.maybe(types.array(types.string)),
         instanceOf: types.maybe(types.array(types.string)),
         inCategory: types.maybe(types.array(types.string)),
