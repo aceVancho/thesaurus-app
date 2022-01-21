@@ -1,7 +1,8 @@
 import { wordsApiHeader, wordsApiUrl } from '../consts';
-import { CurrentSearchModel } from '../Models/CurrentSearchModel';
+import { CurrentSearchModel, store } from '../Models/CurrentSearchModel';
 import { ResultsModel } from '../Models/ResultsModel';
 import { v4 as uuidv4 } from 'uuid';
+import { removeAllPressedStyles } from '../utils/handleStyleChange';
 
 const axios = require("axios").default;
 
@@ -21,6 +22,7 @@ export default async function searchSynonyms(text: string): Promise<any> {
       console.log(error)
   };
 
+  // Populate CurrentSearchModel and ResultsModel
   CurrentSearchModel.create({
     id: uuidv4(),
     apiEndpoint: synonymResponse?.config?.url,
@@ -30,6 +32,10 @@ export default async function searchSynonyms(text: string): Promise<any> {
   synonymResponse?.data?.results?.forEach((result: any) => {
       ResultsModel.create(result)
   })
+
+  // Remove any current filters and reset styles
+  // store.currentSearch?.setFilterIsEnabled()
+  removeAllPressedStyles();
 
   console.log('response (in searchSynonyms.ts):', synonymResponse)
   return synonymResponse;

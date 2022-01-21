@@ -130,7 +130,6 @@ code {
 }
 
 #resultsContainer div {
-  height: 50px;
   border: 1px solid #49556a;
 }
 
@@ -151,12 +150,10 @@ code {
 #FilterBox div {
   background-color: #2b313a;
   border: 1px solid #49556a;
-  height: 50px;
 }
 
 #FilterBox button {
   border: 1px solid #49556a;
-  height: 50px;
 }
 
 #FilterBox button:hover {
@@ -171,12 +168,10 @@ code {
 #ListsBox div {
   background-color: #2b313a;
   border: 1px solid #49556a;
-  height: 50px;
 }
 
 #ListsBox button {
   border: 1px solid #49556a;
-  height: 50px;
 }
 
 #ListsBox button:hover {

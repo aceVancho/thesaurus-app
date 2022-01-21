@@ -1,6 +1,5 @@
 import { types, } from 'mobx-state-tree';
 import { ResultsModel } from './ResultsModel';
-import { PartsOfSpeechModel } from './PartsOfSpeechModel';
 
 const CurrentSearchModel = types
   .model('CurrentSearchModel', {
@@ -10,7 +9,6 @@ const CurrentSearchModel = types
     results: types.optional(types.array(ResultsModel), []),
     filterIsEnabled: types.optional(types.boolean, false),
     filterType: types.maybe(types.string),
-    // filterType: types.union(types.maybe(types.string), types.maybe(PartsOfSpeechModel))
   })
   .views((self) => ({
     filterByPartOfSpeech(partOfSpeech: string) {
@@ -31,7 +29,7 @@ const CurrentSearchModel = types
         if (resultsObj.definition) {
           definitions.push(resultsObj?.definition)
         }
-      })
+      }) 
       return definitions;
     },
     filterBy(filterType: string) {
@@ -47,7 +45,7 @@ const CurrentSearchModel = types
           return this.filterByPartOfSpeech(filterType)
 
         case "definitions":
-          return this.filterByDefinitions
+          return this.filterByDefinitions.length === 0 ? ['No definitions found'] : this.filterByDefinitions
       }
     }
   }))

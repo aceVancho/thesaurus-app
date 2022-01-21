@@ -22,7 +22,7 @@ const FilterBox = () => {
     let FilterBoxHTML = (
         <div id="FilterBox" className="flex flex-col items-center shadow-lg">
             <div className="w-full text-center py-3">Parts of speech</div>
-            {partsOfSpeech?.map((part:any, index:number) => <button id={`${part}-filter`} onClick={onClickHandler} className="py-1 w-full" key={index}>{part}</button>)}
+            {partsOfSpeech?.map((part:any, index:number) => <button id={`${part}-filter`} onClick={onClickHandler} className="py-2 w-full" key={index}>{part}</button>)}
         </div>
     )
     

@@ -5,8 +5,7 @@ import { LeftContainer } from './LeftContainer';
 import { store } from '../Models/CurrentSearchModel';
 import { connectReduxDevtools } from 'mst-middlewares';
 import makeInspectable from 'mobx-devtools-mst';
-import { FilterBox } from './FilterBox';
-import { ListsBox } from './ListsBox';
+
 const remotedev = require('remotedev');
 
 

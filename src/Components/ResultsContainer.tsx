@@ -20,9 +20,9 @@ export const ResultsContainer = () => {
             <ul className=''>
                 {data?.map((word: string, index: number) => {
                     return (
-                        <div key={index} className='flex items-center'>
-                            <li key={index} className='list-disc list-inside pl-4'>
-                                <span >{word.toLowerCase()}</span>
+                        <div key={index} className='flex items-center py-2 pl-7 pr-2'>
+                            <li key={index} className='list-disc list-outside pl-1'>
+                                <span>{word.toLowerCase()}</span>
                             </li>
                         </div>
                     )

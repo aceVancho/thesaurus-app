@@ -13,4 +13,11 @@ const handleStyleChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent
     }
 }
 
-export { handleStyleChange }
+const removeAllPressedStyles = () => {
+    const listsBoxChildren = document.getElementById('ListsBox')?.children;
+    if (listsBoxChildren) Array.from(listsBoxChildren).forEach((node) => node.classList.remove('pressed'))
+    const filterBoxChildren = document.getElementById('FilterBox')?.children;
+    if (filterBoxChildren) Array.from(filterBoxChildren).forEach((node) => node.classList.remove('pressed'))
+}
+
+export { handleStyleChange, removeAllPressedStyles }
