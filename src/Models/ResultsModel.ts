@@ -1,4 +1,4 @@
-import { types, } from 'mobx-state-tree';
+import { types } from 'mobx-state-tree';
 import { store } from './CurrentSearchModel';
 
 const ResultsModel = types
@@ -18,8 +18,8 @@ const ResultsModel = types
         hasTypes: types.maybe(types.array(types.string)),
         hasParts: types.maybe(types.array(types.string)),
     })
-    .views((self) => ({
-        // code
+    .views(self => ({
+
     }))
     .actions((self) => ({
         afterCreate() {

@@ -1,4 +1,4 @@
-import { types, } from 'mobx-state-tree';
+import { types } from 'mobx-state-tree';
 import { ResultsModel } from './ResultsModel';
 
 const CurrentSearchModel = types
@@ -9,6 +9,7 @@ const CurrentSearchModel = types
     results: types.optional(types.array(ResultsModel), []),
     filterIsEnabled: types.optional(types.boolean, false),
     filterType: types.maybe(types.string),
+    focusedResult: types.maybe(types.string),
   })
   .views((self) => ({
     filterByPartOfSpeech(partOfSpeech: string) {
@@ -98,6 +99,13 @@ const CurrentSearchModel = types
         self.filterType = undefined;
         this.setFilterIsEnabled()
       }
+    },
+    setFocusedResult(word: string|undefined) {
+      self.focusedResult = word;
+    },
+    getFocusedResult(focusedResult:string) {
+      let result = self.results.find((resultObj) => resultObj.synonyms?.includes(focusedResult))
+      return result
     },
     afterCreate() {
       store.setCurrentSearch(self)

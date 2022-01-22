@@ -5,6 +5,11 @@ import { LeftContainer } from './LeftContainer';
 import { store } from '../Models/CurrentSearchModel';
 import { connectReduxDevtools } from 'mst-middlewares';
 import makeInspectable from 'mobx-devtools-mst';
+import { configure } from 'mobx'
+
+configure({
+  useProxies: "never"
+})
 
 const remotedev = require('remotedev');
 
